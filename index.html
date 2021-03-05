@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>STACK JS APPLICATION</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Merienda:wght@700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js">
+    </script>
+  </head>
+  <body ng-controller="loginctrl">
+    <h1 id="loginh1" class="login-h1">LOGIN</h1>
+    <div ng-show="!loggedin" id="logindiv" class="login-div" >
+    <!-- <div id="logindiv" class="login-div" > -->
+      <div user-pwd-div="userpwddiv" class="user-pwd-div" >
+        <input  id="userinput" type="text" name="user" value="" placeholder="Username" required ng-model="user" >
+        <!-- value="{{user}}" -->
+        <input  id="pwdinput" type="password" name="pwd" value="" placeholder="Password" required ng-model="pwd">
+      </div>
+      <div id="buttondiv" class="button-div">
+        <!-- <input  id="buttoninput" type="submit" name="submit" value="SUBMIT" onclick="authenticate();" "> -->
+        <input  id="buttoninput" type="submit" name="submit" value="SUBMIT"  ng-click="authenticate()">
+      </div>
+      <!-- <br><br><br><br><br><br><br><br>
+      <center><p>You entered: {{user}} </p></center> -->
+      <!-- <center><p>You entered: <span ng-bind="user"></span> </p></center> -->
+      <!-- <center><p>You entered: {{pwd}}</p></center> -->
+      <!-- <center><p>Your count: {{ count }}</p></center> -->
+    </div>
+    <!-- <div id="itemsdiv" class="items-div" > -->
+    <div id="itemsdiv" class="items-div" ng-show="loggedin">
+      <div id="applediv" class="apple-div" >
+        <h2>APPLE</h2>
+        <!-- <h2 id="numApple" ng-model="maxA">10</h2> -->
+        <h2 id="numApple" ng-model="maxA"><span ng-bind="maxA"></span></h2>
+        <!-- <div id="appleplusdiv" class="appleplus-div" onclick="addApple();"> -->
+        <div id="appleplusdiv" class="appleplus-div" ng-click="addApple()">
+          <h2>+</h2>
+        </div>
+        <!-- <div id="appleminusdiv" class="appleminus-div" onclick="subtractApple();"> -->
+        <div id="appleminusdiv" class="appleminus-div" ng-click="subtractApple()">
+          <h2>-</h2>
+        </div>
+      </div>
+      <div id="orangediv" class="orange-div">
+        <h2>ORANGE</h2>
+        <!-- <h2 id="numOrange">10</h2> -->
+        <h2 id="numOrange" ng-model="maxO"><span ng-bind="maxO"></span></h2>
+        <!-- <div id="appleplusdiv" class="appleplus-div" onclick="addOrange();"> -->
+        <div id="appleplusdiv" class="appleplus-div" ng-click="addOrange()">
+          <h2>+</h2>
+        </div>
+        <!-- <div id="appleminusdiv" class="appleminus-div" onclick="subtractOrange();"> -->
+        <div id="appleminusdiv" class="appleminus-div" ng-click="subtractOrange()">
+          <h2>-</h2>
+        </div>
+      </div>
+      <div id="grapesdiv" class="grapes-div">
+        <h2>GRAPES</h2>
+        <!-- <h2 id="numGrapes">10</h2> -->
+        <h2 id="numGrapes" ng-model="maxG"><span ng-bind="maxG"></span></h2>
+        <!-- <div id="appleplusdiv" class="appleplus-div" onclick="addGrapes();"> -->
+        <div id="appleplusdiv" class="appleplus-div" ng-click="addGrapes()">
+          <h2>+</h2>
+        </div>
+        <!-- <div id="appleminusdiv" class="appleminus-div" onclick="subtractGrapes();"> -->
+        <div id="appleminusdiv" class="appleminus-div" ng-click="subtractGrapes()">
+          <h2>-</h2>
+        </div>
+        </div>
+        <!-- <div id="basketstackdiv" class="basketstack-div"> -->
+        <div id="basketstackdiv" class="basketstack-div" ng-model="basketstackdiv">
+          <!-- <div id="smallapplediv" class="small-apple-div"></div>
+          <div id="smallorangediv" class="small-orange-div"></div>
+          <div id="smallgrapesdiv" class="small-grapes-div"></div> -->
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        var app = angular.module('myApp', []);
+        app.controller('loginctrl', function($scope) {
+          //$scope.user = "Admin";
+          //$scope.pwd = "pass";
+          /* $scope.count = 0;
+          $scope.myFunction = function() {
+            $scope.count++;
+          <!-- }*/ -->
+          $scope.loggedin=false;
+          $scope.authenticate=function(){
+            if($scope.user =="Admin" && $scope.pwd=="pass"){
+              console.log("True");
+              alert('login successful');
+              $scope.loggedin=true;
+              /*
+              loginh1.innerHTML="All items & basket stack!!";
+              loginh1.style.fontSize="1.5rem";
+              logdiv.style.display="none";
+              itemdiv.style.display="block";
+              basketdiv.style.display="block";
+              */
+            }else{
+              console.log("False");
+              alert('Please check your credentials!!');
+            }
+          }
+          $scope.maxA=10;$scope.ai=0;
+          $scope.addApple=function(){
+            //$scope.numfruits=$scope.numApple;//h2
+            var basketdiv=document.getElementById('basketstackdiv');
+            // $scope.numApple=$scope.maxA;
+            if($scope.maxA>0){
+              $scope.maxA--;$scope.ai++;
+              console.log($scope.maxA);
+              var node = document.createElement("div");
+              node.classList.add("small-apple-div");
+              node.innerHTML=""+$scope.ai;
+              node.style.textAlign="center";
+              node.style.fontSize="1rem";
+              node.style.paddingTop = "10px";
+              // basketdiv.appendChild(node);
+              basketdiv.prepend(node);
+
+              // $scope.basketstackdiv.appendChild(node);
+              // $scope.numApple=$scope.maxA;
+            }
+            if($scope.maxA==0){
+              alert('Apple Overflow');
+            }
+          }
+          $scope.subtractApple=function(){
+            var basketdiv=document.getElementById('basketstackdiv');
+
+            if($scope.maxA<10){
+              $scope.maxA++;
+              console.log($scope.maxA);
+              var len=document.getElementsByClassName('small-apple-div').length;
+              console.log("len: "+len);
+              var node = document.getElementsByClassName('small-apple-div')[0];
+              console.log(node);
+              basketdiv.removeChild(node);
+              // numfruits.innerHTML=""+maxA;
+
+          }
+          if($scope.maxA==10){
+              alert('Apple Underflow');
+            }
+          }
+          $scope.maxO=10;
+          $scope.addOrange=function(){
+            // alert('Orange');
+            var basketdiv=document.getElementById('basketstackdiv');
+
+            if($scope.maxO>0){
+              $scope.maxO--;
+              console.log($scope.maxO);
+              var node = document.createElement("div");
+              node.classList.add("small-orange-div");
+              // basketdiv.appendChild(node);
+              basketdiv.prepend(node);
+
+            }
+            if($scope.maxO==0){
+              alert('Orange Overflow');
+            }
+          }
+          $scope.subtractOrange=function(){
+            var basketdiv=document.getElementById('basketstackdiv');
+
+            if($scope.maxO<10){
+              $scope.maxO++;
+              console.log($scope.maxO);
+              var node = document.getElementsByClassName('small-orange-div')[0];
+              basketdiv.removeChild(node);
+          }
+          if($scope.maxO==10){
+              alert('Orange Underflow');
+            }
+          }
+          $scope.maxG=10;
+          $scope.addGrapes=function() {
+            var basketdiv=document.getElementById('basketstackdiv');
+            if($scope.maxG>0){
+              $scope.maxG--;
+              console.log($scope.maxG);
+              var node = document.createElement("div");
+              node.classList.add("small-grapes-div");
+              // basketdiv.appendChild(node);
+              basketdiv.prepend(node);
+
+            }
+            if($scope.maxG==0){
+              alert('Grapes Overflow');
+            }
+          }
+          $scope.subtractGrapes=function() {
+            var basketdiv=document.getElementById('basketstackdiv');
+            if($scope.maxG<10){
+              $scope.maxG++;
+              console.log($scope.maxG);
+              var node = document.getElementsByClassName('small-grapes-div')[0];
+              basketdiv.removeChild(node);
+          }
+          if($scope.maxG==10){
+              alert('Grapes Underflow');
+            }
+          }
+        });
+      </script>
+      <!--<script type="text/javascript" src="./js/script1.js"></script> -->
+    </body>
+</html>

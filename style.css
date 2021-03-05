@@ -1,0 +1,216 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@1,300&display=swap'); */
+html{
+  scroll-behavior: smooth;
+
+}
+body{
+    font-family: "Newsreader", sans-serif;
+    font-size: 2rem;
+    text-shadow: 3px 3px 3px #ababab;
+    background-image: linear-gradient(to right,lightblue , white);
+    /* background-image: url('../images/bg1.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+h2{
+  font-family: "Merienda";
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+  /* padding-top: 10px;*/
+}
+.login-h1{
+  font-family: "Merienda";
+  text-align: center;
+
+  /* font-size:3rem; */
+}
+.login-div{
+    display: block;
+    background-image: linear-gradient(to right,lightblue , pink);
+    height:13rem;
+    width:28rem;
+    border-radius: 10px;
+    /* border: 2px solid red; */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+
+}
+.user-pwd-div{
+  /* border: 2px solid yellow; */
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+}
+.user-pwd-div input{
+  font-family: "Newsreader", sans-serif;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+}
+.button-div{
+  /* border: 2px solid blue; */
+  position: absolute;
+  left: 38%;
+  top: 60%;
+}
+.button-div input{
+  font-family: "Merienda";
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+}
+.button-div:hover{
+  cursor: pointer;
+}
+.button-div input:hover{
+  cursor: pointer;
+}
+.items-div{
+  /* display:none; */
+  background-image: linear-gradient(to right,lightblue , pink);
+  /* border: 2px solid red; */
+  height: 14rem;
+  width: 32rem;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+}
+.apple-div{
+  background-image: linear-gradient(to right,white,#ff3333);
+  height: 16rem;
+  width: 10rem;
+  border-radius: 10px;
+  position: relative;
+  left: -1rem;
+  top: -2rem;
+}
+.orange-div{
+  background-image: linear-gradient(to right,white , orange);
+  height: 16rem;
+  width: 10rem;
+  border-radius: 10px;
+  position: relative;
+  left: 11rem;
+  top: -18.8rem;
+}
+.grapes-div{
+  background-image: linear-gradient(to right,white , #3366ff);
+  height: 16rem;
+  width: 10rem;
+  border-radius: 10px;
+  position: relative;
+  left: 23rem;
+  top: -35.7rem;
+}
+/* .apple-div h2 .orange-div h2 .grapes-div h2{
+  font-family: "Merienda";
+  font-weight: bold;
+  text-align: center;
+  font-size: 1rem;
+  padding-top: 10px;
+} */
+.appleplus-div {
+  border: 2px solid black;
+  background-color: white;
+  height: 2.5rem;
+  width: 2.5rem;
+  position: absolute;
+  left: 2rem;
+  top: 10rem;
+  border-radius: 50%;
+  text-align: center;
+}
+.appleplus-div:hover{
+  cursor:pointer;
+}
+.appleminus-div{
+  border: 2px solid black;
+  background-color: white;
+  height: 2.5rem;
+  width: 2.5rem;
+  position: absolute;
+  left: 6rem;
+  top: 10rem;
+  border-radius: 50%;
+  text-align: center;
+}
+.appleminus-div:hover{
+  cursor:pointer;
+}
+.basketstack-div{
+  /* display: none; */
+  background-color: white;
+  /* height: 22rem; */
+  height:22rem;
+  width: 10rem;
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  top: 33rem;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+}
+@keyframes mymove {
+  from {left: -340px;}
+  to {left: 6px;}
+}
+/* @keyframes mymoveout {
+  from {left: 6px;}
+  to {left: -340px;}
+} */
+
+.small-apple-div{
+  display:block;
+  background-color: #ff3333;
+  /* background-image: linear-gradient(to right,white,#ff3333); */
+  height: 2rem;
+  width: 10rem;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 3px;
+  /* left: -1rem;
+  top: -2rem; */
+  /* transform: translateX(0);
+  transition: transform 0.4s ease; */
+  animation: mymove 1s ;
+  animation-timing-function: ease;
+  /* animation-direction: reverse; */
+}
+
+.small-orange-div{
+  display:block;
+  background-color: orange;
+  /* background-image: linear-gradient(to right,white , orange); */
+  height: 2rem;
+  width: 10rem;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 3px;
+  animation: mymove 1s ;
+  animation-timing-function: ease;
+  /* left: 11rem;
+  top: -18.8rem; */
+}
+.small-grapes-div{
+  display:block;
+  background-color: #3366ff;
+  /* background-image: linear-gradient(to right,white , #3366ff); */
+  height: 2rem;
+  width: 10rem;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 3px;
+  animation: mymove 1s ;
+  animation-timing-function: ease;
+  /* left: 23rem;
+  top: -35.7rem; */
+}
